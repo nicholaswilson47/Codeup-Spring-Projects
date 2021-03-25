@@ -14,6 +14,7 @@ public class DiceController {
     public String showRollDicePage(@PathVariable int n, Model viewModel){
         int randomNum = ThreadLocalRandom.current().nextInt(1, 6+1);
         viewModel.addAttribute("isCorrect", randomNum == n);
+
         return"roll-dice";
     }
 }
