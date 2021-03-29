@@ -22,6 +22,13 @@ class HelloController {
     public String renderform(){
         return "join";
     }
+    @PostMapping("/join")
+    public String submitForm(
+            @RequestParam(name = "cohort") String cohort,
+            Model viewModel){
+        viewModel.addAttribute("welcomeMessage", "Welcome to" + cohort + "!");
+    }
+
 
     @RequestMapping(path = "/increment/{number}", method = RequestMethod.GET)
     @ResponseBody
